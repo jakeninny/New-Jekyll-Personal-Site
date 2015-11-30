@@ -1,7 +1,36 @@
 @import "bourbon/bourbon";
 @import "normalize";
+@import "fonts";
+
+
+$primary-color: #F6C;
+$text-color: #2E2D33;
+$accent-color: #000;
+$bg-color: #fff;
+$link-color: $accent-color;
+$selection-color: #FFF498;
 
 body {
   background: lightblue;
   box-sizing: border-box;
+  font-family: 'Fira Sans' sans-serif;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  outline: 0;
+}
+
+a:hover,
+a:focus {
+  color: lighten($link-color, 20%);
 }
