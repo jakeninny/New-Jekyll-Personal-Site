@@ -1,0 +1,148 @@
+.home-wrap header {
+  background-color: red;
+  width: 130px;
+  padding: 30px 0;
+
+  .header-position {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    bottom: 0;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    @include hide-text;
+    background: url(/assets/images/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    // background-color: pink;
+    height: 150px;
+    max-width: 135px;
+  }
+
+  .site-nav {
+    ul {
+      list-style: none;
+      margin: 20px 0;
+      padding: 0 20px 0 0;
+      text-align: right;
+
+      li {
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .mobile-nav-toggle {
+    display: none;
+    width: 50px;
+    height: 50px;
+    // background: green;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+
+    span,
+    span:before,
+    span:after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: #333;
+      position: relative;
+
+      transition: all 0.3s ease-in-out;
+    }
+
+    span:before {
+      top: 15px;
+    }
+
+    span:after {
+      bottom: 17px;
+    }
+
+    &.is-open span {
+      background: transparent;
+    }
+
+    &.is-open span:before,
+    &.is-open span:after {
+      transform-origin: center;
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    &.is-open span:after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  @media (max-width: 775px) {
+    width: auto;
+    padding: 20px 0;
+
+    .header-position {
+      position: relative;
+      width: auto;
+      top: auto;
+      bottom: auto;
+      left: auto;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      .site-nav {
+        display: none;
+      }
+
+      .logo {
+        height: 80px;
+      }
+    }
+
+    .mobile-nav-toggle {
+      display: flex;
+    }
+  }
+}
+
+.home-wrap {
+  //Mobile Nav
+  .mobile-nav {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: white;
+    padding: 30px 0 20px;
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 775px) {
+    .mobile-nav.is-open {
+      display: block;
+      transform: translateY(0%);
+    }
+  }
+}
